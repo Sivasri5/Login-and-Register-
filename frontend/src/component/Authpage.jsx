@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from '../axios';
 import { useNavigate } from 'react-router-dom';
+import styles from '../styles/authform.module.css';
+
 
 function Authpage({ setAuth }) {
   const [isLogin, setIsLogin] = useState(true);
@@ -31,32 +33,38 @@ function Authpage({ setAuth }) {
   };
 
   return (
-    <div style={{ maxWidth: '400px', margin: '50px auto' }}>
-      <h2>{isLogin ? 'Login' : 'Register'}</h2>
-      <form onSubmit={handleSubmit}>
-        {!isLogin && (
-          <div>
-            <label>Name</label>
-            <input type="text" name="name" value={formData.name} onChange={handleChange} required />
-          </div>
-        )}
-        <div>
-          <label>Email</label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+    <div className={styles['auth-wrapper']}>
+    <div className={styles['auth-container']}>
+      <div className={styles['auth-left']} />
+      <div className={styles['auth-right']}>
+        <div className={styles['auth-card']}>
+          <h2>{isLogin ? 'Login' : 'Register'}</h2>
+          <form onSubmit={handleSubmit}>
+            {!isLogin && (
+              <div>
+                <label>Name</label>
+                <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+              </div>
+            )}
+            <div>
+              <label>Email</label>
+              <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+            </div>
+            <div>
+              <label>Password</label>
+              <input type="password" name="password" value={formData.password} onChange={handleChange} required />
+            </div>
+            <button type="submit">{isLogin ? 'Login' : 'Register'}</button>
+          </form>
+          <p>
+            {isLogin ? "Don't have an account?" : 'Already have an account?'}
+            <button onClick={toggleForm} style={{ marginLeft: '10px' }}>
+              {isLogin ? 'Register' : 'Login'}
+            </button>
+          </p>
         </div>
-        <div>
-          <label>Password</label>
-          <input type="password" name="password" value={formData.password} onChange={handleChange} required />
-        </div>
-        <button type="submit">{isLogin ? 'Login' : 'Register'}</button>
-      </form>
-
-      <p style={{ marginTop: '10px' }}>
-        {isLogin ? "Don't have an account?" : 'Already have an account?'}
-        <button onClick={toggleForm} style={{ marginLeft: '10px' }}>
-          {isLogin ? 'Register' : 'Login'}
-        </button>
-      </p>
+      </div>
+    </div>
     </div>
   );
 }

@@ -1,0 +1,119 @@
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fcfcfc; 
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.auth-container {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  height: 90vh;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+.auth-left {
+  width: 50%;
+  background: url('../assets/auth-image.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px;
+}
+
+.auth-left::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4); 
+}
+
+
+.auth-right {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8ead6;
+  padding: 0 40px;
+}
+
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: transparent;
+}
+
+.auth-card h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #27221e;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+.auth-card label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #333;
+}
+
+.auth-card button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 16px;
+  background-color: #776755; 
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.auth-card button[type="submit"]:hover {
+  background-color: #8c7763;
+}
+
+.auth-card p {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 14px;
+  color: #6b4e3d;
+}
+
+.auth-card p button {
+  background: none;
+  border: none;
+  color: #7a5c4a;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  font-size: 14px;
+}

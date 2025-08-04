@@ -1,0 +1,62 @@
+.dashboard-wrapper {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fffaf3;
+  min-height: 100vh;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboard-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.dashboard-header h2 {
+  color: #4a3f35;
+  font-size: 28px;
+  margin: 0;
+}
+
+.logout-button {
+  padding: 10px 20px;
+  background-color: #937e6e;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #7c6658;
+}
+
+.welcome-card {
+  background-color: #fff;
+  padding: 30px;
+  margin-top: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  color: #4a3f35;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.welcome-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #937e6e;
+}
+
+.username {
+  font-size: 20px;
+  font-weight: bold;
+  color: #5c4636;
+}

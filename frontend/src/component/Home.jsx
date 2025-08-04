@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import axios from '../axios'; 
+import axios from '../axios';
+import styles from '../styles/home.module.css';
 
-function UserCard() {
+function Home() {
   const [name, setName] = useState('');
 
   useEffect(() => {
@@ -25,11 +26,11 @@ function UserCard() {
   }, []);
 
   return (
-    <div style={{ border: '1px solid #ccc', padding: '1rem', maxWidth: '200px', margin: '2rem auto' }}>
-      <h3>Welcome</h3>
-      <p style={{ fontWeight: 'bold' }}>{name}</p>
+    <div className={styles['welcome-card']}>
+      <div className={styles['welcome-title']}>Welcome Back!</div>
+      <div className={styles['username']}>{name}</div>
     </div>
   );
 }
 
-export default UserCard;
+export default Home;

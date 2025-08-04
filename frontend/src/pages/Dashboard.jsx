@@ -1,22 +1,26 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Home from '../component/Home';
+import styles from '../styles/home.module.css';
+
 
 function Dashboard({ setAuth }) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('token'); 
-    setAuth(false);            
-    navigate('/');                     
+    localStorage.removeItem('token');
+    setAuth(false);
+    navigate('/');
   };
 
   return (
-    <div>
-      <h2 style={{ textAlign: 'center' }}>Dashboard</h2>
-      <button onClick={handleLogout} style={{ float: 'right', margin: '10px' }}>
-        Logout
-      </button>
+    <div className={styles['dashboard-wrapper']}>
+      <div className={styles['dashboard-header']}>
+        <h2>Dashboard</h2>
+        <button className={styles['logout-button']} onClick={handleLogout}>
+          Logout
+        </button>
+      </div>
       <Home />
     </div>
   );
