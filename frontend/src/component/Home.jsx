@@ -11,7 +11,7 @@ function Home() {
       if (!token) return;
 
       try {
-        const { data } = await axios.get('/users/home', {
+        const { data } = await axios.get('/api/users/home', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
