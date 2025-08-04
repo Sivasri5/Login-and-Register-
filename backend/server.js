@@ -8,7 +8,8 @@ require('dotenv').config();
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://login-signup-0bpi.onrender.com',
+  //origin: 'http://localhost:3000',
   credentials: true,
 }));
 
