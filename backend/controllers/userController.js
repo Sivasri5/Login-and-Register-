@@ -2,11 +2,20 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+
 exports.register = async(req, res)=>{
        const{name,email,password} = req.body;
        try{
         const exist= await User.findOne({email});
         if(exist) return res.status(400).json({message:"User already existes"});
+
+        if (!passwordRegex.test(password)) {
+      return res.status(400).json({
+        message:
+          "Password must be at least 8 characters long, include one uppercase letter, one lowercase letter, one digit, and one special character.",
+      });
+    }
 
         const hashedPass= await bcrypt.hash(password,10);
 

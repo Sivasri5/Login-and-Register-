@@ -7,11 +7,25 @@ require('dotenv').config();
 
 const app = express();
 
+// app.use(cors({
+//   origin: ['https://login-signup-0bpi.onrender.com'],
+//   //origin: 'http://localhost:3000',
+//   credentials: true,
+// }));
+
 app.use(cors({
-  origin: 'https://login-signup-0bpi.onrender.com',
-  //origin: 'http://localhost:3000',
+  origin: function (origin, callback) {
+    const allowedOrigins = [ 'http://localhost:3000', 'https://login-signup-0bpi.onrender.com' ];
+
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true); 
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 }));
+
 
 app.use(express.json());
 app.use(morgan('dev'));

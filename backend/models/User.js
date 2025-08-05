@@ -16,8 +16,15 @@ const userSchema = new mongoose.Schema({
     password:{
         type: String,
         required: true,
-        minlength: 6
-    },
+        minlength: 8,
+        validate: {
+        validator: function (value) {
+            return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/.test(value);
+        },
+        message:
+            'Password must contain at least one uppercase letter, one lowercase letter, one digit, one special character, and be at least 8 characters long.'
+    }
+    }
 });
 
 module.exports = mongoose.model('User', userSchema);
